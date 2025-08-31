@@ -1,3 +1,46 @@
+// cloudformation-ec2 
+
+0. IAM >> user (atul) >> admin (group) >> FullAdminAccess Policy  
+
+1. 
+```
+git clone https://github.com/atulkamble/cloudformation-templates.git
+cd cloudformation-templates
+```
+
+2. Vaildate Template
+```
+aws cloudformation validate-template --template-body file://ec2-linux.yaml
+```
+
+3. create key.pem from aws console (keypair)
+
+4. 
+
+```
+aws cloudformation create-stack \
+  --stack-name ec2-linux \
+  --template-body file://ec2-linux.yaml \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
+5.
+```
+aws cloudformation validate-template --template-body file://ec2-windows.yaml
+```
+6. launch windows server 
+
+```
+```
+aws cloudformation create-stack \
+  --stack-name ec2-windows \
+  --template-body file://ec2-windows.yaml \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
+
+
+
 Here’s a **quick starter guide** for working with **AWS CloudFormation**:
 
 ---
