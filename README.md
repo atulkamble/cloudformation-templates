@@ -37,90 +37,30 @@ aws cloudformation create-stack \
   --template-body file://ec2-windows.yaml \
   --capabilities CAPABILITY_NAMED_IAM
 ```
+// s3 
 
+tip: have a unique bucket name 
 
-
-
-Here’s a **quick starter guide** for working with **AWS CloudFormation**:
-
----
-
-# 📦 **Basic CloudFormation Templates**
-
-### 1. **EC2 Instance Template**
-
-```yaml
-AWSTemplateFormatVersion: "2010-09-09"
-Description: "Basic EC2 Instance with Security Group"
-
-Resources:
-  MyEC2Instance:
-    Type: AWS::EC2::Instance
-    Properties:
-      InstanceType: t3.micro
-      ImageId: ami-00ca32bbc84273381   # Amazon Linux 2 (update for your region)
-      KeyName: key
-      SecurityGroups:
-        - !Ref InstanceSecurityGroup
-
-  InstanceSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: Enable SSH and HTTP
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
-          CidrIp: 0.0.0.0/0
 ```
-
----
-
-### 2. **S3 Bucket Template**
-
-```yaml
-AWSTemplateFormatVersion: "2010-09-09"
-Description: "Basic S3 Bucket"
-
-Resources:
-  MyS3Bucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: my-basic-cloudformation-bucket
-      VersioningConfiguration:
-        Status: Enabled
+aws cloudformation create-stack \
+  --stack-name s3 \
+  --template-body file://s3.yaml 
 ```
+// vpc 
 
----
-
-### 3. **VPC + Subnet Template**
-
-```yaml
-AWSTemplateFormatVersion: "2010-09-09"
-Description: "Basic VPC with Subnet"
-
-Resources:
-  MyVPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 10.0.0.0/16
-      EnableDnsSupport: true
-      EnableDnsHostnames: true
-      Tags:
-        - Key: Name
-          Value: MyVPC
-
-  MySubnet:
-    Type: AWS::EC2::Subnet
-    Properties:
-      VpcId: !Ref MyVPC
-      CidrBlock: 10.0.1.0/24
-      AvailabilityZone: !Select [0, !GetAZs ""]
-      MapPublicIpOnLaunch: true
+```
+aws cloudformation create-stack \
+  --stack-name vpc \
+  --template-body file://vpc.yaml 
+```
+```
+aws cloudformation delete-stack --stack-name vpc
+```
+```
+aws cloudformation update-stack \
+  --stack-name vpc \
+  --template-body file://vpc.yaml \
+  --capabilities CAPABILITY_NAMED_IAM
 ```
 
 ---
