@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Basic S3 Bucket"
+
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: my-basic-cloudformation-bucket-68643370u09
+      VersioningConfiguration:
+        Status: Enabled
