@@ -1,12 +1,11 @@
+# ☁️ AWS CloudFormation – EC2, S3, VPC Deployment Guide
+
+This document explains **step-by-step how to deploy AWS infrastructure using CloudFormation** (EC2 Linux, EC2 Windows, S3, and VPC) using the **AWS CLI** on **Amazon Web Services**.
 ![Image](https://d2908q01vomqb2.cloudfront.net/7719a1c782a1ba91c031a682a0a2f8658209adbf/2022/06/09/standard-eip.png)
 
 ![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2AP1FeZnLoY6jaeqvC8Ffz2w.png)
 
 ![Image](https://docs.aws.amazon.com/images/AWSCloudFormation/latest/UserGuide/images/update-stack-diagram.png)
-
-# ☁️ AWS CloudFormation – EC2, S3, VPC Deployment Guide
-
-This document explains **step-by-step how to deploy AWS infrastructure using CloudFormation** (EC2 Linux, EC2 Windows, S3, and VPC) using the **AWS CLI** on **Amazon Web Services**.
 
 ---
 
